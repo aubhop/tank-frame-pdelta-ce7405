@@ -24,7 +24,7 @@ The app opens with these preset values. Just press **RUN**:
 | Fill level | 100 % |
 | Analysis | 1st order + 2nd order |
 
-Next, change **Number of columns to 2** and press RUN again. The P-Delta amplification factor goes up to about 1.08.
+Next, change **Number of columns to 6** and press RUN again. The P-Delta amplification factor changes.
 
 Then use **File → Export Results...** to save the member forces and summary to Excel.
 
