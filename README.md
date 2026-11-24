@@ -1,6 +1,6 @@
 # Tank Frame P-Delta Analyzer (CE 7405, Fall 2026)
 
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=aubhop/tank-frame-pdelta&file=CE7405_FinalProj2.mlapp)
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=aubhop/tank-frame-pdelta-ce7405&file=CE7405_FinalProj2.mlapp)
 
 This MATLAB app analyzes a 2D braced steel frame with fixed bases that holds up an elevated cylindrical tank (R = 10 m). It runs both
 **first-order** and **second-order (P-Delta, Newton-Raphson)** direct-stiffness analysis. The tank gravity load,
