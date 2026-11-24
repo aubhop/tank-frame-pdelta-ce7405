@@ -11,7 +11,7 @@ W  = getOpt(opts, 'W', 20); % total width
 H = getOpt(opts, 'H', 3); % 3 meter column height NEEDS TO BE CHANGED *********
 hBrace = getOpt(opts, 'hBrace', H/2);
 nElCol = getOpt(opts, 'nElCol', 4);
-nElBeam = getOpt(opts, 'nElBeam', 1);
+nElBeam = getOpt(opts, 'nElBeam', 4);
 sections = getOpt(opts, 'sections', defaultSections());
 if hBrace <= 0 || hBrace > H
     error('buildFrame:hBrace', 'Brace hieght must be between 0 and H.');
@@ -129,11 +129,15 @@ model.W = W; model.H = H; model.hBrace = hBrace; model.nCols = nCols;
 end
 
 function s = defaultSections()
-% Placeholder steel sections -- replace A and I with your chosen members *** 
+% Steel sections (E = 200 GPa, Fy = 345 MPa)
+%  COL  : circular pipe legs, OD 1.0 m x 40 mm wall (same D = 1 m used for Morison)
+%  BEAM : welded plate girder under the tank, 3.0 m deep,
+%         flanges 1000 x 75 mm, web 2850 x 30 mm
+%  BRACE: 12.75 in (324 mm OD) x 12.7 mm pipe, axial only (truss)
 E = 200e9;                                       % Pa
-s(1) = struct('name', 'COL',   'E', E, 'A', 0.05, 'I', 2.0e-3);
-s(2) = struct('name', 'BEAM',  'E', E, 'A', 0.05, 'I', 2.0e-3);
-s(3) = struct('name', 'BRACE', 'E', E, 'A', 0.01, 'I', 0);      % truss: I unused
+s(1) = struct('name', 'COL',   'E', E, 'A', 0.1206, 'I', 1.392e-2);   % m^2, m^4
+s(2) = struct('name', 'BEAM',  'E', E, 'A', 0.2355, 'I', 0.3788);
+s(3) = struct('name', 'BRACE', 'E', E, 'A', 0.0124, 'I', 0);         % truss: I unused
 end
  
 function idx = findSection(sections, name)
